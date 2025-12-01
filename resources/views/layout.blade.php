@@ -18,8 +18,8 @@
             <a class="link-layout" href="{{Route('homePage')}}">Home</a>
             <a class="link-layout" href="{{Route('gamesPage')}}">Catalogo</a>
             <a class="link-layout" href="{{Route('aboutUs')}}">Sobre Nós</a>
-            <a class="link-layout" href="{{Route('myProfile')}}"><i class=""></i></a>
         </div>
+        <a class="link-layout-profile" href="{{Route('myProfile')}}"><img src="{{ asset('assets/images/profileicon.png') }}" alt=""></a>
         <a class="login" href="{{ route('login') }}" class="">Login</a>
 </div>
 </nav>

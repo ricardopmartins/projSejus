@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\userControler;
 use App\Http\Controllers\sitecontroler;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JogosControler;
@@ -13,10 +14,10 @@ Route::get('/games/{$id}', [sitecontroler::class, 'show']);
 
 // Login/Autenticação Routes
 Route::get('/login', [sitecontroler::class, 'login'])->name('login');
-Route::post('/login', [sitecontroler::class, 'authenticate'])->name('authenticate');
+Route::post('/login', [userControler::class, 'authenticate'])->name('authenticate');
 
 Route::get('/myprofile', [sitecontroler::class, 'myprofile'])->name('myProfile');
 
 Route::get('/registerPage', [sitecontroler::class, 'registerPage'])->name('registerPage');
-Route::post('/registerPage', [sitecontroler::class, 'store']);
+Route::post('/registerPage', [userControler::class, 'store']);
 

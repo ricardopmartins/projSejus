@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\sitecontroler;
 use App\Models\Enderecos;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +52,7 @@ class userControler extends Controller
 
         if (Auth::attempt($credenciais)){
             $request->session()->regenerate();
-            return view('myprofile');
+            return redirect('/myprofile');
         } else {
             return redirect()->back()->withErrors('error', 'Login ou Senha Incorretos');
         }
