@@ -18,37 +18,38 @@
 
 
     <section class="game-strip">
-        <div class="game-card">
-            <img src="{{ asset('assets/images/L.A.Noire_Capa.jpg') }}" alt="L.A.Noire">
-            <h3>L.A.Noire</h3>
-            <p class="platform">Windows</p>
-            <p class="price">R$ 47,99 <span class="discount">-40%</span></p>
-            <button>Comprar</button>
-        </div>
+        <x-game-card
+            title="L.A. Noire"
+            platform="Windows"
+            price="47.99"
+            discount="40"
+            image="{{ asset('assets/images/L.A.Noire_Capa.jpg') }}"
+        />
 
-        <div class="game-card">
-            <img src="{{ asset('assets/images/roboCopCapa.jpg') }}" alt="RoboCop">
-            <h3>RoboCop: Rogue City</h3>
-            <p class="platform">Windows</p>
-            <p class="price">R$ 150,99 <span class="discount">-20%</span></p>
-            <button>Comprar</button>
-        </div>
+        <x-game-card
+            title="RoboCop: Rogue City"
+            platform="Windows"
+            price="150.99"
+            discount="20"
+            image="{{ asset('assets/images/roboCopCapa.jpg') }}"
+        />
 
-        <div class="game-card">
-            <img src="{{ asset('assets/images/SWAT_4_capa.webp') }}" alt="SWAT_4">
-            <h3>SWAT 4</h3>
-            <p class="platform">Windows</p>
-            <p class="price">R$ 50,00 <span class="discount">-24%</span></p>
-            <button>Comprar</button>
-        </div>
+        <x-game-card
+            title="SWAT 4"
+            platform="Windows"
+            price="50.00"
+            discount="24"
+            image="{{ asset('assets/images/SWAT_4_capa.webp') }}"
+        />
 
-        <div class="game-card">
-            <img src="{{ asset('assets/images/SleepingDogsCapa.jpeg') }}" alt="Sleeping_Dogs">
-            <h3>Sleeping Dogs</h3>
-            <p class="platform">Windows</p>
-            <p class="price">R$ 55,99 <span class="discount">-85%</span></p>
-            <button>Comprar</button>
-        </div>
+        <x-game-card
+            title="Sleeping Dogs Definitive Edition"
+            platform="Windows"
+            price="8.39"
+            discount="85"
+            image="{{ asset('assets/images/SleepingDogsCapa.jpeg') }}"
+        />
+
     </section>
 </body>
 
