@@ -25,11 +25,6 @@
 {{-- @endguest --}}
 {{-- @auth --}}
             <a class="link-layout-profile" href="{{Route('myProfile')}}"><img src="{{ asset('assets/images/profileicon.png') }}" alt=""></a>
-            <div>
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
 {{-- @endauth --}}
         <a class="login" href="{{ route('login') }}" class="">Login</a>
         </div>

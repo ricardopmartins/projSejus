@@ -8,34 +8,25 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class users extends Model
-{
-    use HasFactory;
+// class users extends Model
+// {
+//     use HasFactory;
 
-    protected $table = 'User';
-    protected $primaryKey = 'user_id';
-    public $timestamps = false;
+//     protected $table = 'User';
+//     protected $primaryKey = 'user_id';
+//     public $timestamps = false;
 
-    protected $fillable = [
-        'user_id',
-        'name',
-        'email',
-        'password',
-        'cpf',
-        'data_nascimento',
-        'id_endereco'
-    ];
+//     protected $fillable = [
+//         'user_id',
+//         'name',
+//         'email',
+//         'password',
+//         'cpf',
+//         'data_nascimento',
+//         'id_endereco'
+//     ];
 
 
-    public function wishlist()
-    {
-        return $this->hasMany(Wishlist::class, 'fk_wishlist_to_user', 'user_id');
-    }
-    public function meus_jogos()
-    {
-        return $this->hasMany(Meus_Jogos::class, 'fk_meus_jogos_to_user', 'user_id');
-    }
-}
 class User extends Authenticatable
 {
     protected $primaryKey = 'user_id';
@@ -63,5 +54,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function wishlist()
+    {
+        return $this->hasMany(Wishlist::class, 'fk_wishlist_to_user', 'user_id');
+    }
+    public function meus_jogos()
+    {
+        return $this->hasMany(Meus_Jogos::class, 'fk_meus_jogos_to_user', 'user_id');
     }
 }
