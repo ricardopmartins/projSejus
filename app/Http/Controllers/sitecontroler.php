@@ -14,7 +14,7 @@ use PhpParser\Node\Expr\FuncCall;
 
 class sitecontroler extends Controller
 {
-    public function home()
+    public function index()
     {
         return view('homePage');
     }

@@ -12,6 +12,8 @@
     height: 800px;
     object-fit: cover;
     object-position: top;
+    margin: 0;
+    padding: 0;
 }
 
 .banner-overlay {
