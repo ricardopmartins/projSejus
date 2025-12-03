@@ -46,6 +46,7 @@
     width: 420px;
     flex-shrink: 0;
     text-align: center;
+    align-items: center;
     color: #FFF;
     align-items: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);

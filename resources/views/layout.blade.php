@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Layout')</title>
+    <link rel="stylesheet" href="{{ asset('bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/styleDefault.css') }}?v={{ file_exists(public_path('assets/css/styleDefault.css')) ? filemtime(public_path('assets/css/styleDefault.css')) : time() }}">
     <link rel="stylesheet" href="{{asset('assets/css/styleLayout.css')}}?v={{ file_exists(public_path('assets/css/styleLayout.css')) ? filemtime(public_path('assets/css/styleLayout.css')) : time() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="{{ asset('assets/images/logoNova.png') }}">
 
+    <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.min.js') }}"></script>
     @yield('styles')
   </head>
   <body>

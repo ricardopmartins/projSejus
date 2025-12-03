@@ -50,38 +50,6 @@
             <button>Comprar</button>
         </div>
     </section>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-    <h1>gnoiaengpanwg</h1>
-
 </body>
 
 @endsection
