@@ -18,6 +18,23 @@ class Jogos extends Model
         'plataforma'
     ];
 
+    // Desconto automático baseado no valor
+    public function getDiscountAttribute()
+    {
+        if ($this->valor >= 100) return 20;
+        if ($this->valor >= 50) return 10;
+        return null;
+    }
+
+    // Preço final já com desconto aplicado
+    public function getFinalPriceAttribute()
+    {
+        if ($this->discount) {
+            return $this->valor - ($this->valor * $this->discount /100);
+        }
+        return $this->valor;
+    }
+
     public function JogosGenero()
     {
         return $this->hasMany(Jogo_genero::class, 'id_jogo');
