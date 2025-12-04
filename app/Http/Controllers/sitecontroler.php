@@ -38,18 +38,21 @@ class sitecontroler extends Controller
     {
         return view('layout');
     }
-    public function myprofile()
-    {
-        return view('myprofile');
-    }
     // Função Cadastrar Usuario
     public function registerPage(){
         return view('registerPage');
     }
+    public function myprofile()
+    {
+        return view('Perfil.myprofile');
+    }
     public function biblioteca(){
-        return view('biblioteca');
+        return view('Perfil.biblioteca');
     }
     public function wishlist(){
-        return view('wishlist');
+        return view('Perfil.wishlist');
+    }
+    public function baseperfil(){
+        return view('Perfil.basePerfil');
     }
 }
