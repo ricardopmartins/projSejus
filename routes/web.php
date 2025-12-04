@@ -3,10 +3,10 @@
 use App\Http\Controllers\userControler;
 use App\Http\Controllers\sitecontroler;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\JogosControler;
+use App\Http\Controllers\jogosController;
 
 // -- Rotas Publicas
-Route::get('/', [sitecontroler::class, 'index'])->name('homePage');
+Route::get('/', [JogosController::class, 'index'])->name('homePage');
 Route::get('/layout', [sitecontroler::class, 'layout'])->name('layout');
 Route::get('/about', [sitecontroler::class, 'about'])->name('aboutUs');
 
