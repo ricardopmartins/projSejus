@@ -76,19 +76,40 @@
     height: 20px;
 }
 
+/* Estilização dos Preços e Descontos */
 .price {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
     font-size: 1rem;
     margin: 6px 0;
 }
+.price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
 
+
+.price-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.price-final {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.price-original {
+    font-size: 0.85rem;
+    color: #AAA;
+    text-decoration: line-through;
+}
 .discount {
     color: #FF4C4C;
+    font-size: 0.9rem;
     font-weight: bold;
-    margin-left: 6px;
 }
 
 button {
