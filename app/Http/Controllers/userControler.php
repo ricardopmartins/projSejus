@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\sitecontroler;
 use App\Models\Enderecos;
 use App\Models\User;
-use Illuminate\Http\Concerns\InteractsWithInput;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use PhpParser\Node\Expr\FuncCall;
 
 class userControler extends Controller
 {

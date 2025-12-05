@@ -1,5 +1,5 @@
 @extends('Perfil.basePerfil')
 
-@section('biblioteca_content')
+@section('profile_content')
     @include('Perfil.content.biblioteca_content')
 @endsection

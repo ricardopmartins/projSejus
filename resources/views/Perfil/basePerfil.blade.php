@@ -154,7 +154,7 @@
                     </div>
 
                     <div class="card-body p-4 p-md-5">
-                        <div class="col-md-8 mx-auto">
+                        <div class="col-md-12 mx-auto">
                             <div id="dynamic-content">
 
                                 @yield('profile_content')

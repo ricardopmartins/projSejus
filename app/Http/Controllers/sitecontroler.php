@@ -2,16 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\userControler;
-use App\Models\Enderecos;
-use App\Models\User;
-use App\Models\Usuarios;
-// use Illuminate\Container\Attributes\Auth;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-// use \Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Hash;
-use PhpParser\Node\Expr\FuncCall;
 
 class sitecontroler extends Controller
 {
