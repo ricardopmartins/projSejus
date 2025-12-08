@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\sitecontroler;
 use App\Models\Enderecos;
 use App\Models\User;
-use Illuminate\Http\Concerns\InteractsWithInput;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use PhpParser\Node\Expr\FuncCall;
 
 class userControler extends Controller
 {
@@ -59,8 +56,15 @@ class userControler extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('homePage');
     }
-    public function myprofile()
+
+    // Return das views de perfil
+    public function myprofile(Request $request)
     {
+        if($request->ajax()){
+            $user = Auth::user();
+            return view('Perfil.content.myprofile_content', compact('user'));
+        }
+
         if(Auth::check()){
             $user = Auth::user();
 
@@ -68,6 +72,28 @@ class userControler extends Controller
         }
         return view('Perfil.myprofile');
     }
+
+     public function biblioteca(Request $request){
+
+        $dados = [];
+        if($request->ajax()){
+            return view('Perfil.content.biblioteca_content', compact('dados'));
+        }
+        return view('Perfil.biblioteca', compact('dados'));
+    }
+
+    public function wishlist(Request $request){
+
+        if($request->ajax()){
+            return view('Perfil.content.wishlist_content', compact('dados'));
+        }
+        return view('Perfil.wishlist');
+    }
+
+    public function baseperfil(){
+        return view('Perfil.basePerfil');
+    }
+
     public function registerPage(){
         return view('registerPage');
     }

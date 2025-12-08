@@ -2,16 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\userControler;
-use App\Models\Enderecos;
-use App\Models\User;
-use App\Models\Usuarios;
-// use Illuminate\Container\Attributes\Auth;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-// use \Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Hash;
-use PhpParser\Node\Expr\FuncCall;
 
 class sitecontroler extends Controller
 {
@@ -42,15 +32,5 @@ class sitecontroler extends Controller
     // Função Cadastrar Usuario
     public function registerPage(){
         return view('registerPage');
-    }
-
-    public function biblioteca(){
-        return view('Perfil.biblioteca');
-    }
-    public function wishlist(){
-        return view('Perfil.wishlist');
-    }
-    public function baseperfil(){
-        return view('Perfil.basePerfil');
     }
 }
