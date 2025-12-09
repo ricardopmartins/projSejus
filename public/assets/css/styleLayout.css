@@ -68,6 +68,9 @@ img{
 
 }
 
+.linkcar{
+    text-decoration: none;
+}
 .login,.link-layout {
   color: white;
   text-transform: uppercase;

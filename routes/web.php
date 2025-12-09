@@ -13,6 +13,7 @@ Route::get('/about', [sitecontroler::class, 'about'])->name('aboutUs');
 // Lista de Jogos/Catalago
 Route::get('/games', [sitecontroler::class, 'games'])->name('gamesPage');
 Route::get('/games/{id}', [sitecontroler::class, 'show']);
+Route::get('/carrinho',[sitecontroler::class, 'carrinho'])->name('carrinho');
 
 // -- Autenticação (Login, Registro e Logout)
 Route::get('/login', [sitecontroler::class, 'login'])->name('login');

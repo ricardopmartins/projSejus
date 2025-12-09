@@ -10,7 +10,7 @@
 <div class="card mb-3 shadow-sm">
     <div class="d-flex align-items-center p-3">
 
-        <img class="rounded me-3" style="width: 80px; height: 80px; object-fit: cover;"src="{{$img}}" alt="{{$title}}">
+        <img class="rounded me-3" style="width: 90px; height: 150px; object-fit: cover;"src="{{$img}}" alt="{{$title}}">
 
         <div class="flex-grow-1">
 
@@ -29,9 +29,13 @@
 
                 <span class="fw-bold text-primary">-{{ $discount }}%</span>
                 @else
-                Valor Pago R$ {{ number_format($price, 2, ',', '.') }}
+                R$ {{ number_format($price, 2, ',', '.') }}
                 @endif
             </p>
+        </div>
+        <div class="ms-auto d-flex align-items-center">
+            <button type="button" class="btn btn-outline-success me-2">Comprar</button>
+            <button type="button" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
         </div>
     </div>
 </div>
