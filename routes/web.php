@@ -6,6 +6,7 @@ use App\Http\Controllers\userControler;
 use App\Http\Controllers\sitecontroler;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\jogosController;
+use App\Http\Controllers\AdminJogosController;
 
 // -- Rotas Publicas
 Route::get('/', [JogosController::class, 'index'])->name('homePage');
@@ -39,3 +40,12 @@ Route::middleware(['auth'])->group(function(){
 Route::get('/registerPage', [userControler::class, 'registerPage'])->name('registerPage');
 Route::post('/registerPage', [userControler::class, 'store']);
 
+// Rota da Administração
+Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/jogos', [AdminJogosController::class, 'index'])->name('jogos.index');
+    Route::get('/jogos/create', [AdminJogosController::class, 'create'])->name('jogos.create');
+    Route::post('/jogos', [AdminJogosController::class, 'store'])->name('jogos.store');
+    Route::get('/jogos/{jogo}/edit', [AdminJogosController::class, 'edit'])->name('jogos.edit');
+    Route::put('/jogos/{jogo}', [AdminJogosController::class, 'update'])->name('jogos.update');
+    Route::delete('/jogos/{jogo}', [AdminJogosController::class, 'destroy'])->name('jogos.destroy');
+});

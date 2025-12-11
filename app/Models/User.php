@@ -20,7 +20,8 @@ class User extends Authenticatable
         'password',
         'cpf',
         'data_nascimento',
-        'id_endereco'
+        'id_endereco',
+        'is_admin'
     ];
 
     protected $hidden = [
@@ -38,8 +39,14 @@ class User extends Authenticatable
 
     public function endereco()
     {
-        return $this->belongsTo(Enderecos::class, 'id_endereco', 'id_endereco');
+        return $this->belongsTo(\App\Models\Enderecos::class, 'id_endereco', 'id_endereco');
     }
+    // Verificar se o usuário é Administrador
+    public function isAdmin()
+    {
+        return $this->is_admin === 1;
+    }
+
     public function wishlist()
     {
         return $this->hasMany(Wishlist::class, 'fk_wishlist_to_user', 'user_id');

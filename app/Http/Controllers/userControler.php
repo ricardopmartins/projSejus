@@ -40,6 +40,7 @@ class userControler extends Controller
         return redirect()->route('login');
     }
 
+    // Função verificar autenticação do usuário
     public function authenticate(Request $request) {
         $credenciais = $request->validate([
             'email' => ['required','email'],
@@ -48,7 +49,13 @@ class userControler extends Controller
 
         if (Auth::attempt($credenciais)){
             $request->session()->regenerate();
+
+            if (Auth::user()->isAdmin()) {
+                return redirect()->route('admin.jogos.index');
+            }
+
             return redirect()->route('myProfile');
+
         } else {
             return redirect()->back()->withErrors(['login' => 'Login ou Senha Incorretos'])
             ->withInput();
@@ -66,12 +73,12 @@ class userControler extends Controller
     public function myprofile(Request $request)
     {
         if($request->ajax()){
-            $user = Auth::user();
+            $user = User::with('endereco')->find(Auth::id());
             return view('Perfil.content.myprofile_content', compact('user'));
         }
 
         if(Auth::check()){
-            $user = Auth::user();
+            $user = User::with('endereco')->find(Auth::id());
 
             return view('Perfil.myprofile', compact('user'));
         }

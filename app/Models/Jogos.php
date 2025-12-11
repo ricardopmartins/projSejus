@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
 
 class Jogos extends Model
 {
@@ -13,9 +14,11 @@ class Jogos extends Model
 
     protected $fillable = [
         'nome_jogo',
-        'valor',
-        'description',
         'plataforma',
+        'valor',
+        //'discount',
+        'description',
+        //'final_price',
         'image_path'
     ];
 
@@ -39,6 +42,12 @@ class Jogos extends Model
     {
         return $this->select('j.*')
         ->get();
+    }
+
+    // ? VERIFICAR SE REALMENTE É NECESSÁRIO AQUI DEPOIS
+    public function getImagemAttribute()
+    {
+        return $this->image_path ? Storage::disk('s3')->temporaryUrl($this->image_path, now()->addMinutes(5)) : asset('assets/images/defaultGame.jpg');
     }
 
     public function JogosGenero()
