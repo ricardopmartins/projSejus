@@ -25,16 +25,18 @@ Route::post('/logout', [userControler::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function(){
 
-    Route::get('/myprofile', [userControler::class, 'myprofile'])->name('myProfile');
+    // Rotas
     Route::get('/myprofile/wishlist', [wishlistControler::class, 'wishlist'])->name('wishlist');
-    Route::post('/wishlist/add/{id_jogo}', [wishlistControler::class, 'add'])
-        ->name('wishlist.add')
-        ->middleware('auth');
-    Route::delete('/wishlist/remove/{id_jogo}', [wishlistControler::class, 'remove'])
-        ->name('wishlist.remove')
-        ->middleware('auth');
+    Route::get('/myprofile', [userControler::class, 'myprofile'])->name('myProfile');
     Route::get('/myprofile/biblioteca', [bibliotecaControler::class, 'biblioteca'])->name('biblioteca');
     Route::get('/baseperfil', [userControler::class, 'baseperfil'])->name('baseperfil');
+    // Função Adicionar e Remover jogo da Wishlist
+    Route::post('/wishlist/add/{id_jogo}', [wishlistControler::class, 'add'])
+    ->name('wishlist.add')
+    ->middleware('auth');
+    Route::delete('/wishlist/remove/{id_jogo}', [wishlistControler::class, 'remove'])
+    ->name('wishlist.remove')
+    ->middleware('auth');
 });
 
 Route::get('/registerPage', [userControler::class, 'registerPage'])->name('registerPage');

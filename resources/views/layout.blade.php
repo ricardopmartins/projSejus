@@ -31,6 +31,9 @@
                 <a class="link-layout" href="{{Route('homePage')}}">Home</a>
                 <a class="link-layout" href="{{Route('gamesPage')}}">Catalogo</a>
                 <a class="link-layout" href="{{Route('aboutUs')}}">Sobre Nós</a>
+                @if(Auth::check() && Auth::user()->isAdmin())
+                    <a class="link-layout" href="{{Route('admin.jogos.index')}}">Painel de Adm</a>
+                @endif
             </div>
 
             @auth
