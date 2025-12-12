@@ -11,7 +11,7 @@ class adminJogosController extends Controller
     public function index()
     {
         $jogos = Jogos::all()->map(function ($jogo) {
-            $jogo ->imagem = $jogo->image_path ? Storage::disk('s3')->temporaryUrl($jogo->image_path, Carbon::now()->addMinutes(5)) : asset('assets/images/defaultGame.jpg');
+            $jogo->imagem = $jogo->image_path ? Storage::disk('s3')->temporaryUrl($jogo->image_path, Carbon::now()->addMinutes(5)) : asset('assets/images/defaultGame.jpg');
             return $jogo;
         });
 
@@ -37,7 +37,8 @@ class adminJogosController extends Controller
 
         // Upload da imagem para o S3/MinIO
         if ($request->hasFile('image_path')) {
-            $path = $request->file('image_path')->store('jogos', 's3');
+            $filename = time() . '_' . $request->file('image_path')->getClientOriginalName();
+            $path = $request->file('image_path')->storeAs('/images', $filename, 's3');
             $validated['image_path'] = $path;
         }
 
@@ -78,7 +79,7 @@ class adminJogosController extends Controller
             $filename = $jogo->id_jogo . '_' . $request->file('image_path')->getClientOriginalName();
 
             // Faz upload usando o nome original
-            $path = $request->file('image_path')->storeAs('images', $filename, 's3');
+            $path = $request->file('image_path')->storeAs('/images', $filename, 's3');
 
             $validated['image_path'] = $path;
         }
@@ -94,6 +95,10 @@ class adminJogosController extends Controller
 
     public function destroy(Jogos $jogo)
     {
+        if ($jogo->image_path && Storage::disk('s3')->exists($jogo->image_path)) {
+            Storage::disk('s3')->delete($jogo->image_path);
+        }
+
         $jogo->delete();
         return redirect()->route('admin.jogos.index')->with('success', 'Jogo excluído com sucesso!');
     }
