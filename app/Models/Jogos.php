@@ -16,19 +16,11 @@ class Jogos extends Model
         'nome_jogo',
         'plataforma',
         'valor',
-        //'discount',
+        'discount',
         'description',
         //'final_price',
         'image_path'
     ];
-
-    // Desconto automático baseado no valor
-    public function getDiscountAttribute()
-    {
-        if ($this->valor >= 100) return 20;
-        if ($this->valor >= 50) return 10;
-        return null;
-    }
 
     // Preço final já com desconto aplicado
     public function getFinalPriceAttribute()
@@ -38,16 +30,11 @@ class Jogos extends Model
         }
         return $this->valor;
     }
+
     public function getJogos()
     {
         return $this->select('j.*')
         ->get();
-    }
-
-    // ? VERIFICAR SE REALMENTE É NECESSÁRIO AQUI DEPOIS
-    public function getImagemAttribute()
-    {
-        return $this->image_path ? Storage::disk('s3')->temporaryUrl($this->image_path, now()->addMinutes(5)) : asset('assets/images/defaultGame.jpg');
     }
 
     public function JogosGenero()

@@ -42,9 +42,16 @@ class adminJogosController extends Controller
             $validated['image_path'] = $path;
         }
 
-        //Cálculo do preço final
-        $discount = $validated['discount'] ?? 0;
-        $validated['final_price'] = $validated['valor'] - ($validated['valor'] * ($discount / 100));
+        // Verifica se o campo estar vazio para aplicar ou não desconto automático
+        if (empty($validated['discount'])) {
+            if ($validated['valor'] >= 100) {
+                $validated['discount'] = 20;
+            } elseif ($validated['valor'] >= 50) {
+                $validated['discount'] = 10;
+            } else {
+                $validated['discount'] = 0;
+            }
+        }
 
         Jogos::create($validated);
 
@@ -64,7 +71,7 @@ class adminJogosController extends Controller
             'nome_jogo' => 'required|string|max:255',
             'plataforma' => 'required|string|max:255',
             'valor' => 'required|numeric|min:0',
-            'discount' => 'nullable|numeric|min:0|max:100', // ? Verificar se é correto desconto aqui
+            'discount' => 'nullable|numeric|min:0|max:100',
             'image_path' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
@@ -75,7 +82,7 @@ class adminJogosController extends Controller
                 Storage::disk('s3')->delete($jogo->image_path);
             }
 
-            //Pego o nome original do arquivo
+            //Pega o nome original do arquivo
             $filename = $jogo->id_jogo . '_' . $request->file('image_path')->getClientOriginalName();
 
             // Faz upload usando o nome original
@@ -84,9 +91,16 @@ class adminJogosController extends Controller
             $validated['image_path'] = $path;
         }
 
-        // Recalcular preço final
-        $discount = $validated['discount'] ?? 0;
-        $validated ['final_price'] = $validated['valor'] - ($validated['valor'] * ($discount / 100));
+        // Verifica se o campo estar vazio para aplicar ou não desconto automático
+        if (empty($validated['discount'])) {
+            if ($validated['valor'] >= 100) {
+                $validated['discount'] = 20;
+            } elseif ($validated['valor'] >= 50) {
+                $validated['discount'] = 10;
+            } else {
+                $validated['discount'] = 0;
+            }
+        }
 
         $jogo->update($validated);
 
