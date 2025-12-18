@@ -21,7 +21,7 @@
     }
 @endphp
 
-<div class="card h-100 border-0 shadow-sm overflow-hidden group-hover-effect mb-3">
+<div class="card h-100 border-0 shadow-sm overflow-hidden group-hover-effect mb-3" style="background: #123A8C">
     <div class="position-relative">
         <a href="{{ route('jogo.show', $id) }}">
             <img src="{{ $img }}" class="card-img-top object-fit-cover mx-auto mt-0" style="height: 200px; width: 100%;" alt="{{ $title }}">
@@ -39,7 +39,7 @@
     </div>
 
     <div class="card-body d-flex flex-column">
-        <h5 class="card-title text-truncate" title="{{ $title }}">
+        <h5 class="card-title text-truncate text-white" title="{{ $title }}">
             {{ $title }}
         </h5>
 
@@ -49,19 +49,19 @@
                 <div class="d-flex flex-column">
 
                     @if($original_price && $original_price > $price)
-                    <small class="text-muted text-decoration-line-through">
+                    <small class="text-muted text-decoration-line-through" style="color: white !important">
                         R$ {{ number_format($original_price, 2, ',', '.') }}
                     </small>
                     @endif
 
-                    <span class="h5 mb-0 fw-bold text-success">
+                    <span class="h5 mb-0 fw-bold text-success" style="color: #40c057 !important">
                         R$ {{ number_format($price, 2, ',', '.') }}
                     </span>
                 </div>
 
                 <div>
 
-                    <a href="{{ route('jogo.show', $id) }}" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                    <a href="{{ route('jogo.show', $id) }}" class="btn btn-sm btn-outline-primary rounded-pill px-3 me-2">
                         Ver
                     </a>
 

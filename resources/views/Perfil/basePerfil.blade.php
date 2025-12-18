@@ -118,7 +118,7 @@
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <div class="card shadow-sm border-0 overflow-hidden">
+                <div class="card shadow-sm border-0 overflow-hidden" style="background: #123A8C">
 
                     <div class="row g-0 border-bottom" id="abas-container">
 
@@ -135,7 +135,7 @@
                                 class="text-decoration-none fw-medium ajax-link stretched-link {{ request()->routeIs('biblioteca') ? 'text-white' : 'text-dark' }}">Biblioteca</a>
                         </div>
 
-                        <div class="col-4 p-3 d-flex justify-content-center align-items-center gap-2 border-end ajax-tab position-relative
+                        <div class="col-4 p-3 d-flex justify-content-center mb-0 align-items-center gap-2 border-end ajax-tab position-relative
                             {{ request()->routeIs('wishlist') ? 'bg-primary text-white' : 'bg-white hover-bg-gray text-dark' }}">
 
                             <span class="material-symbols-outlined">favorite</span>

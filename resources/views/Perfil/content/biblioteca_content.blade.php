@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{asset(" assets/css/style_card_biblioteca.css")}}">
 <div class="mb-5 text-center text-md-start">
-    <h3 class="h3 mb-2 fw-bold">Minha Biblioteca</h3>
-    <p class="text-muted">Seus jogos e conteúdos adquiridos</p>
+    <h3 class="h3 mb-2 fw-bold text-white">Minha Biblioteca</h3>
+    <p class="text-muted" style="color: white !important">Seus jogos e conteúdos adquiridos</p>
 </div>
 @section('title', 'Biblioteca')
 <div class="row row-cols-md-3 ">
