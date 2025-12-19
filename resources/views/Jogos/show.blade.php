@@ -78,9 +78,12 @@
                     <div class="d-flex gap-2 mt-3" >
 
                         @if (!$hasGame)
-                        <button class="border-0 rounded-2 fw-bold fs-5 d-flex align-items-center me-2" style="padding: 7px 14px; background: #57FF71">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABC0lEQVR4nNWUQWrCQBiFv9IWddFF6AEqhUK3gniGpgV7ki49g+QQRRDqCbJ04d4LBFeSdFGli26sCGpK4AUCTdMZSYr94F8kef97M8OfgSMjVlmzzzQPqgjYZpo/gcsDA26BRlGQL4Nejmn8Q6WcAwEQKSiXezXNgVPLgCc9BwrL5QSYSZiEmR7RBfCmb11+oSehbxHg6f0EAxxgBeyAa4OAJrDWJLYxZCAjz0A7knaIBS01vQP1Al1HK092cIUlU4MJSqtva578aEsD42TlL0DNNuBZBmONbqk4ujo2wA0VcAZ8WJx/fMgl+AgsqgyonAfgVTejW4LuG1Fm22EJur8PcNUcAncl6P4xX78RkD47z3P/AAAAAElFTkSuQmCC" alt="cart">Comprar
-                        </button>
+                        <form action="{{route('carrinho.add', $jogo->id_jogo)}}" method="POST">
+                            @csrf
+                            <button type="submit" class="border-0 rounded-2 fw-bold fs-5 d-flex align-items-center me-2" style="padding: 7px 14px; background: #57FF71">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABC0lEQVR4nNWUQWrCQBiFv9IWddFF6AEqhUK3gniGpgV7ki49g+QQRRDqCbJ04d4LBFeSdFGli26sCGpK4AUCTdMZSYr94F8kef97M8OfgSMjVlmzzzQPqgjYZpo/gcsDA26BRlGQL4Nejmn8Q6WcAwEQKSiXezXNgVPLgCc9BwrL5QSYSZiEmR7RBfCmb11+oSehbxHg6f0EAxxgBeyAa4OAJrDWJLYxZCAjz0A7knaIBS01vQP1Al1HK092cIUlU4MJSqtva578aEsD42TlL0DNNuBZBmONbqk4ujo2wA0VcAZ8WJx/fMgl+AgsqgyonAfgVTejW4LuG1Fm22EJur8PcNUcAncl6P4xX78RkD47z3P/AAAAAElFTkSuQmCC" alt="cart">Comprar
+                            </button>
+                        </form>
                         @else
                         <div>
                             <span>Já possui uma chave desse jogo</span>
