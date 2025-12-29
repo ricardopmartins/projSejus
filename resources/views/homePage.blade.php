@@ -19,29 +19,34 @@
 
     {{-- Exibição dos Jogos em Carrossel --}}
     <section class="container my-5">
-        <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="promoCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @foreach($promocoes as $index => $jogo)
-                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                @foreach($slides as $index => $group)
+                    @php
+                        $principal = $group->first();
+                        $extras = $group->skip(1);
+                    @endphp
+
+                    <div class="carousel-item {{  $index == 0 ? 'active' : ''}}">
                         <div class="row g-5">
                             {{-- Banner Principal --}}
                             <div class="col-md-8 ">
                                 <div class="rounded-5">
-                                    <a href="{{ route('jogo.show', $jogo->id_jogo) }}">
-                                        <img src="{{ $jogo->imagem }}" class="img-fluid rounded-3 w-100 h-100 object-fit-cover" alt="{{ $jogo->nome_jogo }}">
+                                    <a href="{{ route('jogo.show', $principal->id_jogo) }}">
+                                        <img src="{{ $principal->imagem }}" class="img-fluid rounded-3 w-100 h-100 object-fit-cover" alt="{{ $principal->nome_jogo }}">
                                     </a>
                                 </div>
                                 <div class="carousel-caption  bg-opacity-100 rounded p-3 text-start">
-                                    <h5 class="text-white fw-bold fs-3">{{ $jogo->nome_jogo }}</h5>
+                                    <h5 class="text-white fw-bold fs-3">{{ $principal->nome_jogo }}</h5>
 
                                     <div class="d-flex align-items-center gap-2">
                                         {{-- Caixa Vemelha % desconto --}}
-                                        <span class="badge bg-danger fs-5 shadow-sm">-{{ $jogo->discount }}%</span>
+                                        <span class="badge bg-danger fs-5 shadow-sm">-{{ $principal->discount }}%</span>
 
                                         {{-- Preços empilhados --}}
                                         <div class="d-flex flex-column">
-                                            <span class="text-white text-decoration-line-through fs-7">R$ {{ number_format($jogo->valor, 2, ',', '.') }}</span>
-                                            <span class="fw-bold text-white fs-4">R$ {{ number_format($jogo->final_price, 2, ',', '.') }}</span>
+                                            <span class="text-white text-decoration-line-through fs-7">R$ {{ number_format($principal->valor, 2, ',', '.') }}</span>
+                                            <span class="fw-bold text-white fs-4">R$ {{ number_format($principal->final_price, 2, ',', '.') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -49,27 +54,20 @@
 
                             {{-- Dois banners menores à direita --}}
                             <div class="col-md-4 d-flex flex-column gap-4">
-                                <div class="position-relative flex-fill">
-                                    <img src="{{ $jogo->imagem }}" class="img-fluid rounded object-fit-cover flex-fill" alt="Promo extra 1">
-                                    <div class="position-absolute bottom-0 text-white small-banner-caption">
-                                        <h6 class="fw-bold mb-1">{{ $jogo->nome_jogo }}</h6>
-                                        <div class="d-flex align-items-center gap-2">
-                                            <span class="badge bg-danger">-{{ $jogo->discount }}%</span>
-                                            <span class="fw-bold text-white fs-4">R$ {{ number_format($jogo->final_price, 2, ',', '.') }}</span>
+                                @foreach ($extras as $extra)
+                                    <div class="position-relative flex-fill">
+                                        <a href="{{ route('jogo.show', $extra->id_jogo) }}">
+                                            <img src="{{ $extra->imagem }}" class="img-fluid rounded object-fit-cover flex-fill" alt="{{ $extra->nome_jogo }}">
+                                        </a>
+                                        <div class="position-absolute bottom-0 text-white small-banner-caption">
+                                            <h6 class="fw-bold mb-1">{{ $extra->nome_jogo }}</h6>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="badge bg-danger">-{{ $extra->discount }}%</span>
+                                                <span class="fw-bold text-white fs-4">R$ {{ number_format($extra->final_price, 2, ',', '.') }}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="position-relative flex-fill">
-                                    <img src="{{ $jogo->imagem }}" class="img-fluid rounded object-fit-cover flex-fill" alt="Promo extra 2">
-                                    <div class="position-absolute bottom-0 text-white small-banner-caption">
-                                        <h6 class="fw-bold mb-1">{{ $jogo->nome_jogo }}</h6>
-                                        <div class="d-flex align-items-center gap-2">
-                                            <span class="badge bg-danger">-{{ $jogo->discount }}%</span>
-                                            <span class="fw-bold text-white fs-4">R$ {{ number_format($jogo->final_price, 2, ',', '.') }}</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

@@ -22,7 +22,13 @@ class JogosController extends Controller
             return $jogo;
         });
 
-        return view('homePage', ['jogos' => $jogos, 'promocoes' => $promocoes]);
+        // Agrupa em blocos de 3 (1 principal + 2 extras)
+        $slides = $promocoes->chunk(3);
+
+        return view('homePage', [
+            'jogos' => $jogos,
+            'slides' => $slides,
+        ]);
 
     }
 

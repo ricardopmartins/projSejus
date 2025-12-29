@@ -25,7 +25,7 @@ class adminJogosController extends Controller
     }
 
     // Salvar novo jogo
-    public function store(Request $request)
+    public function store(Request $request, Jogos $jogo)
     {
         $validated = $request->validate([
             'nome_jogo' => 'required|string|max:255',
@@ -37,7 +37,7 @@ class adminJogosController extends Controller
 
         // Upload da imagem para o S3/MinIO
         if ($request->hasFile('image_path')) {
-            $filename = time() . '_' . $request->file('image_path')->getClientOriginalName();
+            $filename = $jogo->id_jogo . '_' . $request->file('image_path')->getClientOriginalName();
             $path = $request->file('image_path')->storeAs('/images', $filename, 's3');
             $validated['image_path'] = $path;
         }
