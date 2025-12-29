@@ -11,7 +11,7 @@ body {
     background-color: var(--color-secondary);
     background-image: radial-gradient(
         circle,
-        #3a5e95 0%,
+        #133d7c 0%,
         var(--color-secondary) 100%
     );
     background-attachment: fixed;
