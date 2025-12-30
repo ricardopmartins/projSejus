@@ -47,16 +47,6 @@
                         />
                     @endforeach
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-8 ">
-                        <h3 class="text-white fw-bold">Subtotal</h3>
-                    </div>
-
-                    <div class="col-auto ms-auto text-end">
-                        <span class="text-white fw-bold fs-4">R$ {{ number_format($subtotal, 2, ',', '.') }}</span>
-                    </div>
-                </div>
             </div>
 
             <div>
@@ -125,13 +115,13 @@
                     <div class="row">
                         <div class="col-lg-8 mb-3">
                             <div class="d-flex justify-content-between mb-2">
-                                <span class="text-white">Subtotal</span>
+                                <span class="text-white fs-5">Subtotal</span>
 
                             </div>
                         </div>
 
                         <div class="col-auto ms-auto">
-                            <span class="text-white">R$ {{ number_format($subtotal, 2, ',', '.') }}</span>
+                            <span class="text-white fs-5">R$ {{ number_format($subtotal, 2, ',', '.') }}</span>
                         </div>
                     </div>
                     <div class="row">
@@ -141,18 +131,18 @@
                             </div>
                         </div>
                         <div class="col-auto ms-auto">
-                            <span class="text-white">R$ {{ number_format($descontoTotal, 2, ',', '.') }}</span>
+                            <span class="text-white fs-5">R$ {{ number_format($descontoTotal, 2, ',', '.') }}</span>
                         </div>
                     </div>
                     <hr>
                     <div class="row mb-3">
                         <div class="col-lg-8">
-                            <span class="text-white">Total</span>
+                            <span class="text-white fs-5">Total</span>
                             <div class="d-flex justify-content-between mb-2">
                             </div>
                         </div>
                         <div class="col-auto ms-auto">
-                            <span class="text-white">R$ {{ number_format($totalFinal, 2, ',', '.') }}</span>
+                            <span class="text-white fs-5">R$ {{ number_format($totalFinal, 2, ',', '.') }}</span>
                         </div>
                     </div>
 
