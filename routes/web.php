@@ -10,7 +10,7 @@ use App\Http\Controllers\jogosController;
 use App\Http\Controllers\AdminJogosController;
 
 // -- Rotas Publicas
-Route::get('/', [JogosController::class, 'index'])->name('homePage');
+Route::get('/', [JogosController::class, 'home'])->name('homePage');
 Route::get('/layout', [sitecontroler::class, 'layout'])->name('layout');
 Route::get('/about', [sitecontroler::class, 'about'])->name('aboutUs');
 Route::get('/catalogo', [jogosController::class, 'catalogo'])->name('gamesPage');
