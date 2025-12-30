@@ -19,11 +19,18 @@
             <div class="form-box">
                 <form action="/registerPage" method="POST">
                     @csrf
+                    <div class="name-box">
+                        <label for="name">
+                            <input type="text" name="name" id="name" placeholder="&nbsp;">
+                            <span class="label">Nome</span>
+                            <span class="focus-bg"></span>
+                        </label>
+                    </div>
                     <div class="side">
-                        <div class="name-box">
-                            <label for="name">
-                                <input type="text" name="name" id="name" placeholder="&nbsp;">
-                                <span class="label">Nome</span>
+                        <div for="inp" class="telefone-box">
+                            <label for="telefone">
+                                <input type="text" name="telefone" id="telefone" placeholder="&nbsp;">
+                                <span class="label">Telefone</span>
                                 <span class="focus-bg"></span>
                             </label>
                         </div>
@@ -54,13 +61,13 @@
                             </label>
                         </div>
                     </div>
-                        <div for="inp" class="email-box">
-                            <label for="email">
-                                <input type="email" name="email" id="email" placeholder="&nbsp;">
-                                <span class="label">Email</span>
-                                <span class="focus-bg"></span>
-                            </label>
-                        </div>
+                    <div for="inp" class="email-box">
+                        <label for="email">
+                            <input type="email" name="email" id="email" placeholder="&nbsp;">
+                            <span class="label">Email</span>
+                            <span class="focus-bg"></span>
+                        </label>
+                    </div>
                     <div class="side">
                         <div class="rua-box">
                             <label for="endereco">
@@ -71,7 +78,7 @@
                         </div>
                         <div class="numero-box">
                             <label for="endereco">
-                                <input type="text" name="numero" id="numero" placeholder="&nbsp;">
+                                <input type="text" name="numero" id="numero" placeholder="&nbsp;" maxlength="4">
                                 <span class="label">Numero</span>
                                 <span class="focus-bg"></span>
                             </label>
@@ -115,6 +122,30 @@
             </div>
     </section>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
+    <script>
+        $('#cep').mask('00000-000');
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#telefone').mask('(00) 0 0000-0000');
+        $('form').submit(function(e) {
+        e.preventDefault();
+
+        var form = $(this);
+
+        var cep_limpo = $('#cep').cleanVal();
+        $('#cep').val(cep_limpo);
+
+        var cpf_limpo = $('#cpf').cleanVal();
+        $('#cpf').val(cpf_limpo);
+
+        var telefone_limpo = $('#telefone').cleanVal();
+        $('#telefone').val(telefone_limpo);
+
+        form.unbind('submit').submit();
+    });
+    </script>
 </body>
 
 </html>

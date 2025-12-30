@@ -99,6 +99,7 @@ body {
 .endereco-box label,
 .cpf-box label,
 .name-box label,
+.telefone-box label,
 .email-box label,
 .password-box label {
     display: block;
@@ -109,7 +110,7 @@ body {
 #cidade,#estado,
 #cep,#bairro,
 #endereco,#idade,
-#bairro,#cep,
+#bairro,#cep,#telefone,
 #estado,#endereco,
 #idade,#name,
 #email,#password {
@@ -163,6 +164,7 @@ body {
 #cidade:hover,
 #name:hover,
 #cpf:hover,
+#telefone:hover,
 #endereco:hover,
 #idade:hover,
 #email:hover,
@@ -171,6 +173,7 @@ body {
     box-shadow: inset 0 -1px 0 rgba(var(--color-dark), 0.5);
 }
 #cidade:not(:placeholder-shown) + .label,
+#telefone:not(:placeholder-shown) + .label,
 #estado:not(:placeholder-shown) + .label,
 #cep:not(:placeholder-shown) + .label,
 #bairro:not(:placeholder-shown) + .label,
@@ -191,6 +194,7 @@ body {
 #rua:focus,
 #numero:focus,
 #estado:focus,
+#telefone:focus,
 #cidade:focus,
 #cep:focus,
 #bairro:focus,
@@ -209,6 +213,7 @@ body {
 /* 3a. Focus Label: Move e muda a cor para Primary */
 #rua:focus + .label,
 #numero:focus + .label,
+#telefone:focus + .label,
 #estado:focus + .label,
 #cidade:focus + .label,
 #cep:focus + .label,
@@ -232,6 +237,7 @@ body {
 #cidade:focus + .label + .focus-bg,
 #cep:focus + .label + .focus-bg,
 #bairro:focus + .label + .focus-bg,
+#telefone:focus + .label + .focus-bg,
 #cpf:focus + .label + .focus-bg,
 #endereco:focus + .label + .focus-bg,
 #idade:focus + .label + .focus-bg,

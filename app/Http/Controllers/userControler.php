@@ -21,9 +21,9 @@ class userControler extends Controller
         $endereco= new Enderecos();
 
         $endereco->rua = $request->rua;
-        $endereco->numero = $request->numero;
         $endereco->cidade = $request->cidade;
         $endereco->estado = $request->estado;
+        $endereco->numero = $request->numero;
         $endereco->cep = $request->cep;
         $endereco->bairro = $request->bairro;
         $endereco->save();
@@ -34,6 +34,7 @@ class userControler extends Controller
         $user->password = Hash::make($request->password);
         $user->data_nascimento = $request->idade;
         $user->id_endereco = $endereco->id_endereco;
+        $user->telefone = $request->telefone;
         // Preenchendo Parte tabela endereços
 
         $user->save();
