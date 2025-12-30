@@ -1,58 +1,31 @@
-/* reset mínimo*/
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    color: FFF;
-}
-
 /* container */
 .container {
-  display: flex;
-  justify-content: flex-start;
   max-width: 1140px;
   color: #FFF;
   text-shadow: 2px 2px 6px rgba(0,0,0,1);
 }
 
-/* banner */
-#banner {
-    display: flex;
-    justify-content: flex-start;
-    height: 670px;
+/* hero background */
+.hero {
+    background: linear-gradient(rgba(18,58,140,0.8), rgba(18,58,140,0.8)),
+    url('../images/hero-gamer.png') center/cover no-repeat;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 80%; /* ocupa toda a largura */
+    max-width: 100%; /* remove limite do Bootstrap */
+    margin: 0 auto; /* centraliza */
 }
 
-/* banner_headline */
-.banner_headline {
-    max-width: 600px;
-    text-align: left;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* Ajuste para os cards da seção Diferenciais */
+.diferenciais-card {
+    background-color: transparent !important; /* remove fundo branco */
+    border: 2px solid #fff !important;                   /* borda branca */
+    color: #fff !important;                              /* texto branco para contraste */
+    transition: all 0.3s ease;
 }
 
-.banner_headline h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #FFF;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+.diferenciais-card:hover {
+    transform: translateY(-5px);
+    border-color: #00f2fa !important; /* muda cor da borda ao passar o mouse */
 }
 
-.banner_headline h2 {
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #ddd;
-    line-height: 1.6;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-}
