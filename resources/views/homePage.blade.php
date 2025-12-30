@@ -88,11 +88,59 @@
         </section>
     </div>
 
-        {{-- Exibição dos Jogos em Cards --}}
-        <section class="container my-5">
-            <div class="row">
-            @foreach ($jogos as $jogo)
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+    {{-- Exibição dos Jogos em Cards --}}
+    <section class="container my-5">
+        <div class="text-left mb-4">
+            <h2 class="fw-bold">Jogos de Ação em Promoção</h2>
+            <p class="lead">Adrenalina pura com descontos imperdíveis.</p>
+        </div>
+        <div class="row">
+            @foreach ($jogosAcao->take(4) as $jogo)
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <x-game-card
+                        :id="$jogo->id_jogo"
+                        :title="$jogo->nome_jogo"
+                        :platform="$jogo->plataforma"
+                        :price="$jogo->final_price"
+                        :original_price="$jogo->valor"
+                        :discount="$jogo->discount"
+                        :img="$jogo->imagem ?? asset('assets/images/defaultGame.jpg')"
+                    />
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <div class="text-left mb-4">
+            <h2 class="fw-bold">Jogos FPS em Promoção</h2>
+            <p class="lead">Estratégia e precisão com descontos imperdíveis.</p>
+        </div>
+        <div class="row">
+            @foreach ($jogosFps->take(4) as $jogo)
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <x-game-card
+                        :id="$jogo->id_jogo"
+                        :title="$jogo->nome_jogo"
+                        :platform="$jogo->plataforma"
+                        :price="$jogo->final_price"
+                        :original_price="$jogo->valor"
+                        :discount="$jogo->discount"
+                        :img="$jogo->imagem ?? asset('assets/images/defaultGame.jpg')"
+                    />
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <div class="text-left mb-4">
+            <h2 class="fw-bold">Jogos Policias em Promoção</h2>
+            <p class="lead">Perseguição, dedução e investigação esperam por você com descontos imperdíveis.</p>
+        </div>
+        <div class="row">
+            @foreach ($jogosPolicial->take(4) as $jogo)
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
                     <x-game-card
                         :id="$jogo->id_jogo"
                         :title="$jogo->nome_jogo"

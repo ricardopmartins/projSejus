@@ -152,7 +152,7 @@
                                 @foreach ($jogo->JogosGenero as $jogo_genero)
                                     @if($jogo_genero->genero)
                                         <span class="badge bg-light text-dark border rounded-pill me-1 mb-1">
-                                            {{ $jogo_genero->genero->nome }}
+                                            {{ $jogo_genero->genero->nome_genero }}
                                         </span>
                                     @endif
                                 @endforeach

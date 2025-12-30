@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class JogosController extends Controller
 {
 
-    public function index()
+    public function home()
     {
         $jogos = Jogos::all()->map(function ($jogo) {
             $jogo->imagem = $jogo->image_path
@@ -25,8 +25,33 @@ class JogosController extends Controller
         // Agrupa em blocos de 3 (1 principal + 2 extras)
         $slides = $promocoes->chunk(3);
 
+        // Carrega todos os jogos com seus gêneros + trata imagem
+        $jogos = Jogos::with('JogosGenero.genero') ->get() ->map(function ($jogo) { $jogo->imagem = $jogo->image_path ? Storage::disk('s3')->temporaryUrl($jogo->image_path, Carbon::now()->addMinutes(5)) : asset('assets/images/defaultGame.jpg'); return $jogo; });
+
+        // Jogos Ação
+        $jogosAcao = $jogos->filter(function ($jogo) {
+            return $jogo->JogosGenero->contains(function ($jg) {
+                return $jg->genero && $jg->genero->nome_genero === 'Ação';
+            });
+        });
+
+        $jogosFps = $jogos->filter(function ($jogo) {
+            return $jogo->JogosGenero->contains(function ($jg) {
+                return $jg->genero && $jg->genero->nome_genero === 'FPS (Tiro em 1ª Pessoa)';
+            });
+        });
+
+        $jogosPolicial = $jogos->filter(function ($jogo) {
+            return $jogo->JogosGenero->contains(function ($jg) {
+                return $jg->genero && $jg->genero->nome_genero === 'Policial';
+            });
+        });
+
+
         return view('homePage', [
-            'jogos' => $jogos,
+            'jogosAcao' => $jogosAcao,
+            'jogosFps' => $jogosFps,
+            'jogosPolicial' => $jogosPolicial,
             'slides' => $slides,
         ]);
 
